@@ -19,14 +19,13 @@
 *   https://www.ired.team/offensive-security/defense-evasion/detecting-hooked-syscall-functions
 */
 BOOL isItHooked(LPVOID addr) {
-    BYTE stub[] = "\x4c\x8b\xd1\xb8";
-    std::string charData = (char*)addr;
-    if (memcmp(addr, stub, 4) != 0) {
-        return TRUE;
+    BOOL result = FALSE;
+    BYTE stub[] = { 0x4c, 0x8b, 0xd1, 0xb8 };
+    if (memcmp(addr, stub, sizeof(stub)) != 0) {
+        result = TRUE;
     }
-    return FALSE;
+    return result;
 }
-
 
 
 

