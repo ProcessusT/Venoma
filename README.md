@@ -18,7 +18,7 @@
 > <br />
 <br>
 <div align="center">
-<img src="https://github.com/ProcessusT/Venoma/raw/main/assets/demo.jpg" width="80%;">
+<img src="https://github.com/ProcessusT/Venoma/raw/main/assets/demo.jpg" width="100%;">
 </div>
 <br>
 
