@@ -7,10 +7,15 @@
 
 int main()
 {
-    unhook();
+    // Compile Time API Hashing
+    // Run-Time Dynamic Linking 
+    // Ntdll unhooking
+    // PPID spoofing
+    // Process hollowing
+    
 
-    // triggers ESET AV
-    //hidePEB();
+
+    unhook();
 
     DWORD pid = GetPID();
     

