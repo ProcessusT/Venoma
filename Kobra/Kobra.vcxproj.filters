@@ -27,4 +27,9 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <MASM Include="syscalls.asm">
+      <Filter>Fichiers sources</Filter>
+    </MASM>
+  </ItemGroup>
 </Project>

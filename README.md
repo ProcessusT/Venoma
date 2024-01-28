@@ -14,7 +14,7 @@
 > <strong>Run-Time Dynamic Linking</strong><br />
 > <strong>Ntdll unhooking</strong><br />
 > <strong>PPID spoofing</strong><br />
-> <strong>custom Process hollowing</strong><br />
+> <strong>Indirect syscall execution</strong><br />
 > <br />
 <br>
 <div align="center">
