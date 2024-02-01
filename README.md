@@ -14,6 +14,7 @@
 > <strong>Run-Time Dynamic Linking</strong><br />
 > <strong>Ntdll unhooking</strong><br />
 > <strong>PPID spoofing</strong><br />
+> <strong>APC Execution</strong><br />
 > <strong>Indirect syscall execution</strong><br />
 > <br />
 <br>

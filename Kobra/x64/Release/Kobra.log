@@ -1,0 +1,1159 @@
+﻿  Assembling syscalls.asm...
+  Venoma.cpp
+  Ven.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(66,1): warning C4005: 'STATUS_WAIT_0' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2549,1): message : voir la définition précédente de 'STATUS_WAIT_0'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(223,1): warning C4005: 'STATUS_ABANDONED_WAIT_0' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2550,1): message : voir la définition précédente de 'STATUS_ABANDONED_WAIT_0'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(246,1): warning C4005: 'STATUS_USER_APC' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2551,1): message : voir la définition précédente de 'STATUS_USER_APC'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(282,1): warning C4005: 'STATUS_TIMEOUT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2552,1): message : voir la définition précédente de 'STATUS_TIMEOUT'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(291,1): warning C4005: 'STATUS_PENDING' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2553,1): message : voir la définition précédente de 'STATUS_PENDING'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(747,1): warning C4005: 'DBG_EXCEPTION_HANDLED' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2554,1): message : voir la définition précédente de 'DBG_EXCEPTION_HANDLED'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(756,1): warning C4005: 'DBG_CONTINUE' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2555,1): message : voir la définition précédente de 'DBG_CONTINUE'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(831,1): warning C4005: 'STATUS_SEGMENT_NOTIFICATION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2556,1): message : voir la définition précédente de 'STATUS_SEGMENT_NOTIFICATION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(994,1): warning C4005: 'STATUS_FATAL_APP_EXIT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2557,1): message : voir la définition précédente de 'STATUS_FATAL_APP_EXIT'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1332,1): warning C4005: 'DBG_REPLY_LATER' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2558,1): message : voir la définition précédente de 'DBG_REPLY_LATER'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1350,1): warning C4005: 'DBG_TERMINATE_THREAD' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2559,1): message : voir la définition précédente de 'DBG_TERMINATE_THREAD'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1359,1): warning C4005: 'DBG_TERMINATE_PROCESS' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2560,1): message : voir la définition précédente de 'DBG_TERMINATE_PROCESS'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1368,1): warning C4005: 'DBG_CONTROL_C' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2561,1): message : voir la définition précédente de 'DBG_CONTROL_C'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1377,1): warning C4005: 'DBG_PRINTEXCEPTION_C' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2562,1): message : voir la définition précédente de 'DBG_PRINTEXCEPTION_C'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1386,1): warning C4005: 'DBG_RIPEXCEPTION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2563,1): message : voir la définition précédente de 'DBG_RIPEXCEPTION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1395,1): warning C4005: 'DBG_CONTROL_BREAK' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2564,1): message : voir la définition précédente de 'DBG_CONTROL_BREAK'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1404,1): warning C4005: 'DBG_COMMAND_EXCEPTION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2565,1): message : voir la définition précédente de 'DBG_COMMAND_EXCEPTION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1413,1): warning C4005: 'DBG_PRINTEXCEPTION_WIDE_C' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2566,1): message : voir la définition précédente de 'DBG_PRINTEXCEPTION_WIDE_C'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1445,1): warning C4005: 'STATUS_GUARD_PAGE_VIOLATION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2567,1): message : voir la définition précédente de 'STATUS_GUARD_PAGE_VIOLATION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1456,1): warning C4005: 'STATUS_DATATYPE_MISALIGNMENT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2568,1): message : voir la définition précédente de 'STATUS_DATATYPE_MISALIGNMENT'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1467,1): warning C4005: 'STATUS_BREAKPOINT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2569,1): message : voir la définition précédente de 'STATUS_BREAKPOINT'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1478,1): warning C4005: 'STATUS_SINGLE_STEP' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2570,1): message : voir la définition précédente de 'STATUS_SINGLE_STEP'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1781,1): warning C4005: 'STATUS_LONGJUMP' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2571,1): message : voir la définition précédente de 'STATUS_LONGJUMP'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1808,1): warning C4005: 'STATUS_UNWIND_CONSOLIDATE' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2572,1): message : voir la définition précédente de 'STATUS_UNWIND_CONSOLIDATE'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(1923,1): warning C4005: 'DBG_EXCEPTION_NOT_HANDLED' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2573,1): message : voir la définition précédente de 'DBG_EXCEPTION_NOT_HANDLED'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(2090,1): warning C4005: 'STATUS_ACCESS_VIOLATION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2574,1): message : voir la définition précédente de 'STATUS_ACCESS_VIOLATION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(2099,1): warning C4005: 'STATUS_IN_PAGE_ERROR' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2575,1): message : voir la définition précédente de 'STATUS_IN_PAGE_ERROR'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(2117,1): warning C4005: 'STATUS_INVALID_HANDLE' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2576,1): message : voir la définition précédente de 'STATUS_INVALID_HANDLE'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(2162,1): warning C4005: 'STATUS_INVALID_PARAMETER' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2577,1): message : voir la définition précédente de 'STATUS_INVALID_PARAMETER'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(2262,1): warning C4005: 'STATUS_NO_MEMORY' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2578,1): message : voir la définition précédente de 'STATUS_NO_MEMORY'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(2319,1): warning C4005: 'STATUS_ILLEGAL_INSTRUCTION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2579,1): message : voir la définition précédente de 'STATUS_ILLEGAL_INSTRUCTION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(2400,1): warning C4005: 'STATUS_NONCONTINUABLE_EXCEPTION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2580,1): message : voir la définition précédente de 'STATUS_NONCONTINUABLE_EXCEPTION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(2409,1): warning C4005: 'STATUS_INVALID_DISPOSITION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2581,1): message : voir la définition précédente de 'STATUS_INVALID_DISPOSITION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(3342,1): warning C4005: 'STATUS_ARRAY_BOUNDS_EXCEEDED' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2582,1): message : voir la définition précédente de 'STATUS_ARRAY_BOUNDS_EXCEEDED'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(3352,1): warning C4005: 'STATUS_FLOAT_DENORMAL_OPERAND' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2583,1): message : voir la définition précédente de 'STATUS_FLOAT_DENORMAL_OPERAND'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(3362,1): warning C4005: 'STATUS_FLOAT_DIVIDE_BY_ZERO' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2584,1): message : voir la définition précédente de 'STATUS_FLOAT_DIVIDE_BY_ZERO'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(3372,1): warning C4005: 'STATUS_FLOAT_INEXACT_RESULT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2585,1): message : voir la définition précédente de 'STATUS_FLOAT_INEXACT_RESULT'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(3382,1): warning C4005: 'STATUS_FLOAT_INVALID_OPERATION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2586,1): message : voir la définition précédente de 'STATUS_FLOAT_INVALID_OPERATION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(3392,1): warning C4005: 'STATUS_FLOAT_OVERFLOW' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2587,1): message : voir la définition précédente de 'STATUS_FLOAT_OVERFLOW'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(3402,1): warning C4005: 'STATUS_FLOAT_STACK_CHECK' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2588,1): message : voir la définition précédente de 'STATUS_FLOAT_STACK_CHECK'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(3412,1): warning C4005: 'STATUS_FLOAT_UNDERFLOW' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2589,1): message : voir la définition précédente de 'STATUS_FLOAT_UNDERFLOW'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(3422,1): warning C4005: 'STATUS_INTEGER_DIVIDE_BY_ZERO' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2590,1): message : voir la définition précédente de 'STATUS_INTEGER_DIVIDE_BY_ZERO'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(3432,1): warning C4005: 'STATUS_INTEGER_OVERFLOW' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2591,1): message : voir la définition précédente de 'STATUS_INTEGER_OVERFLOW'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(3442,1): warning C4005: 'STATUS_PRIVILEGED_INSTRUCTION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2592,1): message : voir la définition précédente de 'STATUS_PRIVILEGED_INSTRUCTION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(4388,1): warning C4005: 'STATUS_STACK_OVERFLOW' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2593,1): message : voir la définition précédente de 'STATUS_STACK_OVERFLOW'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(4905,1): warning C4005: 'STATUS_DLL_NOT_FOUND' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2594,1): message : voir la définition précédente de 'STATUS_DLL_NOT_FOUND'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(4934,1): warning C4005: 'STATUS_ORDINAL_NOT_FOUND' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2595,1): message : voir la définition précédente de 'STATUS_ORDINAL_NOT_FOUND'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(4944,1): warning C4005: 'STATUS_ENTRYPOINT_NOT_FOUND' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2596,1): message : voir la définition précédente de 'STATUS_ENTRYPOINT_NOT_FOUND'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(4954,1): warning C4005: 'STATUS_CONTROL_C_EXIT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2597,1): message : voir la définition précédente de 'STATUS_CONTROL_C_EXIT'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(5032,1): warning C4005: 'STATUS_DLL_INIT_FAILED' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2598,1): message : voir la définition précédente de 'STATUS_DLL_INIT_FAILED'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(6029,1): warning C4005: 'STATUS_CONTROL_STACK_VIOLATION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2599,1): message : voir la définition précédente de 'STATUS_CONTROL_STACK_VIOLATION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(7623,1): warning C4005: 'STATUS_FLOAT_MULTIPLE_FAULTS' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2600,1): message : voir la définition précédente de 'STATUS_FLOAT_MULTIPLE_FAULTS'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(7633,1): warning C4005: 'STATUS_FLOAT_MULTIPLE_TRAPS' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2601,1): message : voir la définition précédente de 'STATUS_FLOAT_MULTIPLE_TRAPS'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(7765,1): warning C4005: 'STATUS_REG_NAT_CONSUMPTION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2602,1): message : voir la définition précédente de 'STATUS_REG_NAT_CONSUMPTION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(8748,1): warning C4005: 'STATUS_HEAP_CORRUPTION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2603,1): message : voir la définition précédente de 'STATUS_HEAP_CORRUPTION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(8976,1): warning C4005: 'STATUS_STACK_BUFFER_OVERRUN' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2604,1): message : voir la définition précédente de 'STATUS_STACK_BUFFER_OVERRUN'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(9103,1): warning C4005: 'STATUS_INVALID_CRUNTIME_PARAMETER' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2605,1): message : voir la définition précédente de 'STATUS_INVALID_CRUNTIME_PARAMETER'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(9166,1): warning C4005: 'STATUS_ASSERTION_FAILURE' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2606,1): message : voir la définition précédente de 'STATUS_ASSERTION_FAILURE'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(10075,1): warning C4005: 'STATUS_ENCLAVE_VIOLATION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2607,1): message : voir la définition précédente de 'STATUS_ENCLAVE_VIOLATION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(10736,1): warning C4005: 'STATUS_INTERRUPTED' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2608,1): message : voir la définition précédente de 'STATUS_INTERRUPTED'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(10745,1): warning C4005: 'STATUS_THREAD_NOT_RUNNING' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2609,1): message : voir la définition précédente de 'STATUS_THREAD_NOT_RUNNING'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(11057,1): warning C4005: 'STATUS_ALREADY_REGISTERED' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2610,1): message : voir la définition précédente de 'STATUS_ALREADY_REGISTERED'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(14976,1): warning C4005: 'STATUS_SXS_EARLY_DEACTIVATION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2612,1): message : voir la définition précédente de 'STATUS_SXS_EARLY_DEACTIVATION'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\ntstatus.h(14985,1): warning C4005: 'STATUS_SXS_INVALID_DEACTIVATION' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winnt.h(2613,1): message : voir la définition précédente de 'STATUS_SXS_INVALID_DEACTIVATION'
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(386,40): warning C4838: la conversion de 'unsigned __int64' en 'DWORD' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(386,43): warning C4267: 'initialisation' : conversion de 'size_t' en 'DWORD', perte possible de données
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,23): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,23): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,29): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,29): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,35): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,35): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,65): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,65): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,71): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,71): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,77): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,77): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,83): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,83): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,95): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,95): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,101): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,101): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,107): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(465,107): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,30): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,30): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,48): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,48): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,66): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,66): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,72): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,72): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,78): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,78): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,84): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,84): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,102): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,102): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,108): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,108): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,119): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,119): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,125): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,125): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,131): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,131): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,143): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,143): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,149): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,149): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,155): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,155): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,161): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,161): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,167): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,167): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,173): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,173): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,185): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,185): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,191): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,191): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,197): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,197): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,208): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,208): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,220): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,220): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,232): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,232): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,238): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,238): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,244): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,244): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,250): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,250): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,267): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,267): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,273): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,273): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,285): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,285): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,291): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,291): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,297): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,297): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,303): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,303): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,315): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,315): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,321): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,321): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,332): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,332): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,344): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,344): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,350): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,350): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,356): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,356): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,362): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,362): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,374): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,374): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,392): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,392): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,398): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,398): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,404): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,404): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,410): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,410): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,416): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,416): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,440): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,440): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,446): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,446): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,452): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,452): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,458): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,458): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,464): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,464): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,470): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,470): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,487): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,487): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,493): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,493): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,499): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,499): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,517): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,517): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,523): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,523): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,529): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,529): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,535): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,535): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,541): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,541): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,558): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,558): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,564): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,564): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,570): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,570): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,581): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,581): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,598): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,598): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,610): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,610): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,616): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,616): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,634): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,634): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,640): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,640): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,652): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,652): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,664): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,664): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,676): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,676): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,688): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,688): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,700): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,700): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,718): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,718): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,724): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,724): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,753): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,753): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,765): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,765): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,788): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,788): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,812): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,812): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,824): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,824): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,830): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,830): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,854): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,854): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,860): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,860): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,866): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,866): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,878): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,878): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,890): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,890): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,907): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,907): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,913): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,913): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,919): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,919): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,925): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,925): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,931): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,931): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,937): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,937): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,943): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,943): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,955): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,955): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,979): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,979): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1009): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1009): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1015): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1015): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1021): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1021): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1045): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1045): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1057): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1057): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1081): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1081): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1087): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1087): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1111): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1111): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1117): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1117): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1123): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1123): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1129): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1129): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1153): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1153): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1159): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1159): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1165): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1165): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1171): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1171): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1177): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1177): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1183): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1183): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1195): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1195): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1225): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1225): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1237): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1237): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1243): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1243): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1255): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1255): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1279): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1279): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1291): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1291): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1315): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1315): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1327): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1327): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1333): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1333): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1339): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1339): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1363): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1363): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1369): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1369): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1375): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1375): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1381): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1381): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1387): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1387): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1393): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1393): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1399): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1399): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1411): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1411): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1417): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1417): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1423): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1423): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1435): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1435): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1453): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1453): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1465): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1465): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1471): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1471): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1483): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1483): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1495): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1495): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1506): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1506): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1518): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1518): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1529): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1529): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1535): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1535): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1559): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1559): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1565): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1565): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1571): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1571): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1577): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1577): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1589): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1589): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1607): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1607): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1618): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1618): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1630): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1630): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1636): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1636): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1648): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1648): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1660): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1660): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1672): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1672): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1684): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1684): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1690): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1690): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1702): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1702): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1708): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1708): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1714): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1714): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1720): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1720): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1732): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1732): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1767): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1767): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1779): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1779): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1785): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1785): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1791): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1791): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1803): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1803): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1815): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1815): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1827): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1827): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1833): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1833): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1850): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1850): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1856): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1856): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1862): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1862): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1868): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1868): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1874): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1874): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1880): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1880): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1898): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1898): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1904): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1904): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1910): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1910): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1921): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1921): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1927): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1927): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1933): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1933): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1945): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1945): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1969): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1969): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1975): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1975): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1981): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1981): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1999): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,1999): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2011): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2011): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2017): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2017): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2023): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2023): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2041): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2041): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2047): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2047): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2053): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2053): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2059): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2059): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2083): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2083): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2095): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2095): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2113): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2113): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2119): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2119): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2125): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2125): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2131): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2131): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2148): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2148): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2154): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2154): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2160): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2160): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2166): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2166): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2184): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2184): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2190): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2190): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2208): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2208): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2226): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2226): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2238): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2238): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2244): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2244): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2250): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2250): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2256): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2256): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2262): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2262): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2285): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2285): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2297): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2297): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2303): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2303): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2320): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2320): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2326): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2326): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2356): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2356): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2362): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2362): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2368): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2368): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2392): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2392): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2404): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2404): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2428): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2428): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2434): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2434): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2475): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2475): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2481): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2481): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2499): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2499): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2517): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2517): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2523): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2523): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2529): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2529): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2581): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2581): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2599): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2599): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2605): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2605): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2611): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2611): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2628): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2628): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2634): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2634): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2640): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2640): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2646): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2646): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2658): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2658): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2670): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2670): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2676): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2676): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2682): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2682): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2688): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2688): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2694): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2694): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2706): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2706): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2712): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2712): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2718): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2718): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2751): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2751): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2757): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2757): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2763): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2763): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2769): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2769): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2775): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2775): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2781): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2781): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2787): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2787): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2817): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2817): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2823): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2823): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2829): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2829): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2841): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2841): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2847): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2847): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2853): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2853): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2859): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2859): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2876): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2876): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2882): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2882): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2894): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2894): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2924): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2924): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2930): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2930): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2936): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2936): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2954): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2954): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2960): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2960): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2978): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2978): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2984): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2984): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2996): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,2996): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3002): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3002): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3008): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3008): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3026): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3026): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3038): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3038): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3044): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3044): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3056): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3056): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3068): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3068): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3080): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3080): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3092): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3092): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3145): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3145): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3156): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3156): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3174): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3174): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3191): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3191): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3203): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3203): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3209): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3209): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3215): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3215): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3221): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3221): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3232): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3232): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3248): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3248): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3289): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3289): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3295): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3295): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3307): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3307): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3313): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3313): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3319): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3319): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3325): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3325): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3331): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3331): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3349): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3349): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3373): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3373): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3379): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3379): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3385): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3385): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3391): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3391): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3397): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3397): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3409): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3409): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3427): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3427): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3444): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3444): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3450): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3450): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3456): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3456): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3468): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3468): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3474): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3474): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3480): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3480): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3486): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3486): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3498): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3498): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3504): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3504): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3510): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3510): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3516): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3516): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3522): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3522): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3534): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3534): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3564): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3564): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3576): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3576): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3588): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3588): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3594): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3594): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3611): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3611): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3617): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3617): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3623): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3623): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3635): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3635): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3658): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3658): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3664): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3664): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3688): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3688): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3712): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3712): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3724): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3724): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3736): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3736): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3747): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3747): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3753): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3753): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3759): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3759): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3765): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3765): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3782): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3782): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3788): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3788): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3794): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3794): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3806): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3806): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3812): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3812): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3818): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3818): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3824): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3824): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3835): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3835): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3847): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3847): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3853): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3853): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3877): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3877): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3889): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3889): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3901): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3901): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3936): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3936): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3942): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3942): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3960): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3960): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3966): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3966): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3978): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3978): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3984): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3984): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3996): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,3996): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4014): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4014): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4020): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4020): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4043): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4043): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4071): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4071): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4077): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4077): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4095): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4095): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4101): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4101): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4107): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4107): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4113): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4113): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4119): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4119): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4125): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4125): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4142): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4142): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4166): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4166): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4172): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4172): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4178): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4178): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4196): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4196): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4207): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4207): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4213): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4213): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4225): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4225): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4237): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4237): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4243): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4243): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4249): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4249): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4261): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4261): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4273): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4273): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4279): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4279): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4285): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4285): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4303): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4303): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4309): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4309): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4315): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4315): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4327): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4327): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4333): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4333): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4345): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4345): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4357): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4357): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4375): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4375): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4387): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4387): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4404): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4404): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4434): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4434): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4446): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4446): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4452): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4452): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4505): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4505): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4511): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4511): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4517): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4517): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4523): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4523): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4535): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4535): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4552): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4552): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4558): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4558): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4582): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4582): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4588): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4588): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4600): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4600): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4612): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4612): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4624): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4624): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4630): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4630): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4636): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4636): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4647): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4647): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4653): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4653): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4659): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4659): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4671): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4671): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4677): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4677): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4695): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4695): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4701): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4701): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4713): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4713): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4719): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4719): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4725): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4725): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4731): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4731): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4737): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4737): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4761): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4761): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4767): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4767): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4773): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4773): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4785): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4785): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4791): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4791): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4803): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4803): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4825): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4825): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4837): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4837): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4843): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4843): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4849): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4849): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4867): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4867): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4873): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4873): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4879): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4879): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4885): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4885): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4909): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4909): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4921): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4921): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4957): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4957): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4963): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4963): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4969): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4969): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4975): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4975): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4981): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4981): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4987): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4987): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4993): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4993): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4999): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,4999): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5005): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5005): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5022): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5022): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5034): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5034): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5058): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5058): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5064): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5064): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5076): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5076): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5093): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5093): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5099): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5099): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5117): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5117): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5123): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5123): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5129): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5129): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5159): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5159): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5176): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5176): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5182): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5182): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5194): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5194): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5200): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5200): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5212): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5212): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5224): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5224): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5236): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5236): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5282): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5282): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5288): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5288): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5300): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5300): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5306): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5306): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5318): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5318): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5341): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5341): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5370): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5370): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5393): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5393): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5405): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5405): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5411): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5411): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5417): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5417): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5423): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5423): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5434): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5434): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5440): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5440): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5458): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5458): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5470): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5470): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5482): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5482): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5488): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5488): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5494): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5494): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5500): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5500): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5506): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5506): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5512): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5512): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5518): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5518): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5547): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5547): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5583): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5583): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5589): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5589): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5606): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5606): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5617): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5617): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5640): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5640): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5652): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5652): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5664): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5664): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5688): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5688): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5700): warning C4838: la conversion de 'int' en 'char' requiert une conversion restrictive
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(466,5700): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(481,12): warning C4477: 'printf' : la chaîne de format '%p' nécessite un argument de type 'void *', mais l'argument variadique 1 est de type 'UINT_PTR'
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(498,12): warning C4477: 'printf' : la chaîne de format '%p' nécessite un argument de type 'void *', mais l'argument variadique 1 est de type 'UINT_PTR'
+C:\Users\Processus\Documents\GitHub\Venoma\Kobra\Ven.cpp(514,12): warning C4477: 'printf' : la chaîne de format '%p' nécessite un argument de type 'void *', mais l'argument variadique 1 est de type 'UINT_PTR'
+  Génération de code en cours
+  Previous IPDB not found, fall back to full compilation.
+  All 25 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Fin de la génération du code
+  Kobra.vcxproj -> C:\Users\Processus\Documents\GitHub\Venoma\x64\Release\Venoma.exe

