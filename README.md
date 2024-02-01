@@ -12,7 +12,6 @@
 > A custom C++ raw beacon dropper with :<br /><br />
 > <strong>Compile Time API Hashing</strong><br />
 > <strong>Run-Time Dynamic Linking</strong><br />
-> <strong>Ntdll unhooking</strong><br />
 > <strong>PPID spoofing</strong><br />
 > <strong>APC Execution</strong><br />
 > <strong>Indirect syscall execution</strong><br />
