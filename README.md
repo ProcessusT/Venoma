@@ -19,7 +19,7 @@
 > <br />
 <br>
 <div align="center">
-<img src="https://github.com/ProcessusT/Venoma/raw/main/assets/demo.png" width="100%;"><br>
+<img src="https://github.com/ProcessusT/Venoma/raw/main/assets/demo.jpg" width="100%;"><br>
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/IAT%20obfuscation.jpg" width="100%;"><br>
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/strings.jpg" width="100%;">
 </div>
