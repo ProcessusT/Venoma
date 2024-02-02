@@ -13,7 +13,7 @@
 > <strong>Compile Time API Hashing</strong><br />
 > <strong>Run-Time Dynamic Linking</strong><br />
 > <strong>PPID spoofing</strong><br />
-> <strong>APC Execution</strong><br />
+> <strong>Local & remote APC Execution</strong><br />
 > <strong>Indirect syscall execution</strong><br />
 > <br />
 <br>
