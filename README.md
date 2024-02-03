@@ -13,6 +13,8 @@
 > <strong>Compile Time API Hashing</strong><br />
 > <strong>Run-Time Dynamic Linking</strong><br />
 > <strong>PPID spoofing</strong><br />
+> <strong>DLL Unhooking</strong><br />
+> <strong>ETW Patching</strong><br />
 > <strong>Local & remote APC Execution</strong><br />
 > <strong>Indirect syscall execution</strong><br />
 > <strong>Self deletion</strong><br />

@@ -6,6 +6,7 @@
 std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename);
 DWORD GetPID();
 void unhooking();
+void evt_patch();
 
 void Indirect_RawExec_ppid(std::vector<BYTE> sh, DWORD exPID);
 void IndirectAPC();

