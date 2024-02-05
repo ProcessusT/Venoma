@@ -20,6 +20,8 @@
 > <strong>Self deletion</strong><br />
 > <br />
 <br>
+<h4>All functions are included, choose what you need and remove anything else before compiling.</h4>
+<br>
 <div align="center">
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/demo.jpg" width="100%;"><br>
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/IAT%20obfuscation.jpg" width="100%;"><br>
