@@ -8,7 +8,7 @@ DWORD GetPID();
 void unhooking();
 void evt_patch();
 
-void Indirect_RawExec_ppid(std::vector<BYTE> sh, DWORD exPID);
+void Indirect_RawExec_ppid(DWORD exPID);
 void IndirectAPC();
 void IndirectRemoteAPC(DWORD exPID);
 

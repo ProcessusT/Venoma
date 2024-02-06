@@ -35,7 +35,7 @@ int main()
 
 
     // For synchronous payload execution with PPID spoofing through process hollowing
-    // Indirect_RawExec_ppid(sh, pid);
+    //Indirect_RawExec_ppid(pid);
 
 
 
