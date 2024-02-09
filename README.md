@@ -27,10 +27,18 @@
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/demo.jpg" width="100%;"><br>
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/IAT%20obfuscation.jpg" width="100%;"><br>
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/strings.jpg" width="100%;"><br />
-[![IMAGE ALT TEXT](https://github.com/ProcessusT/Venoma/raw/main/assets/artifact_integration.jpg)](https://www.youtube.com/watch?v=tGa3xJymEfY "Artifact kit custom dropper")
 </div>
 <br>
 
+<br /><br />
+
+## Cobalt Strike artifact kit integration
+<br />
+> Compile the project and rename the binary to artifact64big.exe<br />
+> Add your own artifact.cna in the same folder<br />
+> Load your cna into Cobalt Strike and generate a stageless Windows payload<br />
+> Enjoy<br />
+Video tutorial here : <a href="https://www.youtube.com/watch?v=tGa3xJymEfY">https://www.youtube.com/watch?v=tGa3xJymEfY</a>
 
 <br /><br />
 
