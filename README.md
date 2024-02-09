@@ -17,6 +17,7 @@
 > <strong>ETW Patching</strong><br />
 > <strong>Local & remote APC Execution</strong><br />
 > <strong>Indirect syscall execution</strong><br />
+> <strong>Cobalt Strike Artifact kit integration</strong><br />
 > <strong>Self deletion</strong><br />
 > <br />
 <br>

