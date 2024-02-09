@@ -23,7 +23,7 @@ char payload[] = { 0x37, 0xe9, 0x43, 0x3e, 0x8e, 0x49, 0x3b, 0xb4, 0xe5, 0xa3, 0
 
 
 
-// Artifacts kit definitions
+// Artifact kit definitions
 
 typedef struct {
     int  offset;
