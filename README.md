@@ -26,7 +26,8 @@
 <div align="center">
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/demo.jpg" width="100%;"><br>
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/IAT%20obfuscation.jpg" width="100%;"><br>
-<img src="https://github.com/ProcessusT/Venoma/raw/main/assets/strings.jpg" width="100%;">
+<img src="https://github.com/ProcessusT/Venoma/raw/main/assets/strings.jpg" width="100%;"><br />
+[![IMAGE ALT TEXT](https://github.com/ProcessusT/Venoma/raw/main/assets/artifact_integration.jpg)](https://www.youtube.com/watch?v=tGa3xJymEfY "Artifact kit custom dropper")
 </div>
 <br>
 
