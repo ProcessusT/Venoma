@@ -15,6 +15,7 @@
 > <strong>PPID spoofing</strong><br />
 > <strong>DLL Unhooking (Fresh + Perun's fart)</strong><br />
 > <strong>ETW Patching</strong><br />
+> <strong>EnumPageFilesW execution</strong><br />
 > <strong>Local & remote APC Execution</strong><br />
 > <strong>Indirect syscall execution</strong><br />
 > <strong>Cobalt Strike Artifact kit integration</strong><br />
@@ -24,6 +25,7 @@
 <h4>All functions are included, choose what you need and remove anything else before compiling.</h4>
 <br>
 <div align="center">
+<img src="https://github.com/ProcessusT/Venoma/raw/main/assets/bypass2.png" width="100%;"><br>
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/demo.jpg" width="100%;"><br>
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/IAT%20obfuscation.jpg" width="100%;"><br>
 <img src="https://github.com/ProcessusT/Venoma/raw/main/assets/strings.jpg" width="100%;"><br />
