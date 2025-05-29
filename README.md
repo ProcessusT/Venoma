@@ -40,7 +40,7 @@
 > Add your own artifact.cna in the same folder<br />
 > Load your cna into Cobalt Strike and generate a stageless Windows payload<br />
 > Enjoy<br />
-Video tutorial here : <a href="https://www.youtube.com/watch?v=tGa3xJymEfY">https://www.youtube.com/watch?v=tGa3xJymEfY</a>
+Video tutorial here : <a href="https://youtu.be/lFO2bPzxLGI?si=RmvFmliroacXW6Sk">https://www.youtube.com/watch?v=tGa3xJymEfY</a>
 
 <br /><br />
 
